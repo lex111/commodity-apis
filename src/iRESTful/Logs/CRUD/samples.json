@@ -1,0 +1,42 @@
+{
+    "type": [
+        {
+            "keyname": "just-a-log-type",
+            "title": "This is a type title.",
+            "description": "This is a type description."
+        },
+        {
+            "keyname": "another-log-type",
+            "title": "Yet another log type title",
+            "description": "Yet another log type description."
+        }
+    ],
+    "message": [
+        {
+            "ip_address": "127.0.0.1",
+            "domain": "google.com",
+            "username": "my_username",
+            "message": "This is a full log line."
+        },
+        {
+            "ip_address": "12.45.65.78",
+            "domain": "irestful.net",
+            "username": "my_username",
+            "message": "This is a full log line."
+        },
+        {
+            "ip_address": "12.45.65.78",
+            "username": "my_username",
+            "message": "This is a full log line."
+        },
+        {
+            "ip_address": "12.45.65.78",
+            "domain": "irestful.net",
+            "message": "This is a full log line."
+        },
+        {
+            "ip_address": "12.45.65.78",
+            "message": "This is a full log line."
+        }
+    ]
+}
