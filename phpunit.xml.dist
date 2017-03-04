@@ -12,7 +12,7 @@
          bootstrap="./vendor/autoload.php">
     <testsuites>
         <testsuite name="unit">
-            <directory suffix="Test.php">./src/iRESTful/CommodityAPIs/Tests/Unit</directory>
+            <directory suffix="Test.php">./src/iRESTful/CommodityAPIs/*/CRUD/Tests/Unit</directory>
         </testsuite>
 
     </testsuites>
@@ -26,7 +26,7 @@
     <filter>
         <whitelist>
             <exclude>
-                <directory>./src/iRESTful/CommodityAPIs/Tests</directory>
+                <directory>./src/iRESTful/CommodityAPIs/*/CRUD/Tests</directory>
             </exclude>
             <directory>./src</directory>
         </whitelist>

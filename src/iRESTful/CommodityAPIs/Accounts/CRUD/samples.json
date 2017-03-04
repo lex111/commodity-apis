@@ -1,0 +1,54 @@
+{
+    "permission": [
+        {
+            "can_read": true,
+            "can_write": true
+        },
+        {
+            "can_read": false,
+            "can_write": false
+        },
+        {
+            "can_read": true,
+            "can_write": false
+        }
+    ],
+    "role": [
+        {
+            "title": "This is a role title",
+            "description": "This is a role description."
+        }
+    ],
+    "software": [
+        {
+            "title": "This is a software name",
+            "description": "This is a software description."
+        }
+    ],
+    "software_credentials": [
+        {
+            "key": "fRmCTkdNn1ak2SrsF5bfhCMCmquYkqFzh0b9loWIq62sZtVDz6SQIEs34X0onFXFG8O1wKJWRMoPeirNojD5X",
+            "secret": "911appQm3vuSx0CgWs1khfCI201F5ZLfNpobeKeKe6geIwaaxurN6"
+        }
+    ],
+    "authorization": [
+        {
+            "ip_address": "127.0.0.1"
+        },
+        {
+            "ip_address": "71.50.33.234",
+            "domain": "google.com"
+        }
+    ],
+    "account": [
+        {
+            "email": "steve@irestful.net",
+            "password": "$2y$10$T1bxO08bMecHbZd/tADCC.NlSl2PnNNwQxh8BbmGGuEyWUqoZ9Cr6"
+        }
+    ],
+    "authentication": [
+        {
+            "ip_address": "76.22.39.212"
+        }
+    ]
+}

@@ -1,0 +1,171 @@
+{
+    "name": "iRESTful/AccountCrudApi",
+    "version": "17.03.04",
+    "license": "MIT",
+    "type": "crud-rest-api",
+    "url": "https://irestful.net",
+    "authors": [
+        {
+            "name": "Steve Rodrigue",
+            "email": "steve@irestful.net",
+            "url": "https://irestful.net"
+        }
+    ],
+    "maintainer": "Steve Rodrigue",
+    "project": {
+        "samples": "samples.json",
+        "code": {
+            "language": "PHP",
+            "file": "code.php"
+        },
+        "objects": {
+            "permission": {
+                "database": "pdo",
+                "function": "permissionConstructor",
+                "properties": {
+                    "can_read": "boolean",
+                    "can_write": "boolean"
+                }
+            },
+            "role": {
+                "database": "pdo",
+                "properties": {
+                    "title": "string",
+                    "description": "string",
+                    "permissions|?": "permission[]"
+                }
+            },
+            "software": {
+                "database": "pdo",
+                "properties": {
+                    "title": "string",
+                    "description": "string",
+                    "permissions|?": "permission[]"
+                }
+            },
+            "software_credentials": {
+                "database": "pdo",
+                "properties": {
+                    "software": "software",
+                    "key": "software_key",
+                    "secret": "software_key"
+                }
+            },
+            "authorization": {
+                "database": "pdo",
+                "properties": {
+                    "credentials": "software_credentials",
+                    "ip_address": "ip_address",
+                    "domain|?": "domain"
+                }
+            },
+            "account": {
+                "database": "pdo",
+                "properties": {
+                    "email": "email",
+                    "password": "password"
+                }
+            },
+            "authentication": {
+                "database": "pdo",
+                "properties": {
+                    "authorized_by": "authorization",
+                    "account": "account",
+                    "ip_address": "ip_address"
+                }
+            }
+        },
+        "databases": {
+            "pdo": "relational"
+        },
+        "converters": [
+            {
+                "from": "string",
+                "to": "password"
+            },
+            {
+                "from": "string",
+                "to": "email"
+            },
+            {
+                "from": "string",
+                "to": "ip_address"
+            },
+            {
+                "from": "string",
+                "to": "domain"
+            },
+            {
+                "from": "string",
+                "to": "software_key"
+            }
+        ],
+        "types": {
+            "password": {
+                "database_type": {
+                    "name": "string",
+                    "max": 255
+                },
+                "function": "validatePassword",
+                "converters": {
+                    "database_to_object": {
+                        "from": "string",
+                        "to": "password"
+                    }
+                }
+            },
+            "email": {
+                "database_type": {
+                    "name": "string",
+                    "max": 255
+                },
+                "function": "validateEmail",
+                "converters": {
+                    "database_to_object": {
+                        "from": "string",
+                        "to": "email"
+                    }
+                }
+            },
+            "ip_address": {
+                "database_type": {
+                    "name": "string",
+                    "max": 255
+                },
+                "function": "validateIpAddress",
+                "converters": {
+                    "database_to_object": {
+                        "from": "string",
+                        "to": "ip_address"
+                    }
+                }
+            },
+            "domain": {
+                "database_type": {
+                    "name": "string",
+                    "max": 255
+                },
+                "function": "validateDomainName",
+                "converters": {
+                    "database_to_object": {
+                        "from": "string",
+                        "to": "domain"
+                    }
+                }
+            },
+            "software_key": {
+                "database_type": {
+                    "name": "string",
+                    "max": 255
+                },
+                "function": "validateKey",
+                "converters": {
+                    "database_to_object": {
+                        "from": "string",
+                        "to": "software_key"
+                    }
+                }
+            }
+        }
+    }
+}
