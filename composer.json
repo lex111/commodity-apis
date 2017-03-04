@@ -14,6 +14,6 @@
     },
     "require": {
       "php": ">=7.0",
-      "irestful-labs/compilers-cli": "17.02.21"
+      "irestful-labs/compilers-cli": "17.02.27"
     }
 }
