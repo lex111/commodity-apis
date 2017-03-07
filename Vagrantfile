@@ -54,7 +54,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       sudo apt-get upgrade -y;
 
       #download the docker-compose file of the compilers:
-      sudo wget https://raw.githubusercontent.com/irestful-labs/docker-compilers/17.02.27/docker-compose.yml --output-document=/vagrant/docker-compose.yml;
+      sudo wget https://raw.githubusercontent.com/irestful-labs/docker-compilers/17.03.06/docker-compose.yml --output-document=/vagrant/docker-compose.yml;
 
       #remove dependencies:
       sudo rm -R -f /vagrant/vendor;

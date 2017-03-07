@@ -23,7 +23,7 @@ To compile a recipe into PHP code, simply execute this command:
 
 ```bash
 
-php vendor/bin/irestful-api-compiler http://127.0.0.1:8080 ./src/iRESTful/Logs/CRUD/recipe.json ./bin;
+php vendor/bin/irestful compile http://127.0.0.1:8080 ./src/iRESTful/CommodityAPIs/Accounts/CRUD/recipe.json ./bin;
 
 ```
 
@@ -52,22 +52,37 @@ To run the unit tests, execute this command:
 cd /vagrant;
 
 //execute the unit tests:
-php vendor/bin/phpunit --testsuite=unit .;
+php vendor/bin/phpunit --testsuite=unit;
 
 ```
 
-## Create a new version:
-To create a new version, leave Vagrant.  Then, using the Dockerfile of the project, execute this code.  Make sure to modify VERSION by the right version number.
+## Watching applications
+If you are working on the application and want to auto-compile while you work, simply execute this command.  It will auto-compile every time you save.
 
 ```bash
 
-//go in the crud api generated code directory:
-cd bin;
+php vendor/bin/irestful watch http://127.0.0.1:8080 ./src ./bin;
 
-//build a new version:
-docker build -t irestful/log-crud-api:VERSION .
+```
 
-//push it to the docker registry:
-docker push irestful/log-crud-api:VERSION
+## Building images
+To build the docker images, simply run this command.
+
+```bash
+
+php vendor/bin/irestful build http://127.0.0.1:8080 ./src ./bin;
+
+```
+
+## Pushing docker images to the repository
+To create a new version, simply execute this command.  It will render all the commands to run to push all the docker images to your docker repository.  You'll also need to login to your docker repository if not done already.
+
+```bash
+
+//login to your docker repository.  If you are already logged in, just skip this step:
+docker login;
+
+//run the push command:
+php vendor/bin/irestful push ./src;
 
 ```
