@@ -1,88 +1,84 @@
 # Commodity APIs
 The Commodity APIs contains logic to APIs that can be re-used easily by a lot of organizations.
 
-
 ## Development
-We use Vagrant to create the virtual environment of our development environment.  To load the dev environment using Vagrant, execute this code:
+We use Vagrant to create the virtual environment of our development environment. To load the dev environment using Vagrant, execute this following steps:
 
+Create the VM:
 ```bash
+$ vagrant up
+```
 
-//create the VM:
-vagrant up;
+Login to the VM using SSH:
+```bash
+$ vagrant ssh
+```
 
-//ssh in the VM:
-vagrant ssh;
-
-//go at the root of our project:
-cd /vagrant;
-
+Go at the root of our project:
+```bash
+$ cd /vagrant
 ```
 
 ## Compile
 To compile a recipe into PHP code, simply execute this command:
 
 ```bash
-
-php vendor/bin/irestful compile http://127.0.0.1:8080 ./src/iRESTful/CommodityAPIs/Accounts/CRUD/recipe.json ./bin;
-
+$ php vendor/bin/irestful compile http://127.0.0.1:8080 ./src/iRESTful/CommodityAPIs/Accounts/CRUD/recipe.json ./bin;
 ```
 
 ## Running the Docker image:
-To run the docker image, we use docker-compose.  Execute the docker-compose recipe using this command:
+To run the docker image, we use docker-compose. Execute the docker-compose recipe using this steps.
 
+Go in the generated code directory:
 ```bash
-
-//go in the generated code directory:
-cd /vagrant/bin;
-
-//install and start the application:
-php start.php;
-
-//stop the application:
-php stop.php;
-
+$ cd /vagrant/bin
 ```
 
-## Run the unit tests:
-To run the unit tests, execute this command:
-
+Install and start the application:
 ```bash
+$ php start.php
+```
 
-//go at the root of our project:
-cd /vagrant;
+Stop the application:
+```bash
+$ php stop.php
+```
 
-//execute the unit tests:
-php vendor/bin/phpunit --testsuite=unit;
+## Run the unit tests
 
+Go at the root of our project:
+```bash
+$ cd /vagrant
+```
+
+Execute the unit tests:
+```bash
+$ php vendor/bin/phpunit --testsuite=unit
 ```
 
 ## Watching applications
 If you are working on the application and want to auto-compile while you work, simply execute this command.  It will auto-compile every time you save.
 
 ```bash
-
-php vendor/bin/irestful watch http://127.0.0.1:8080 ./src ./bin;
-
+$ php vendor/bin/irestful watch http://127.0.0.1:8080 ./src ./bin
 ```
 
 ## Building images
 To build the docker images, simply run this command.
 
 ```bash
-
-php vendor/bin/irestful build http://127.0.0.1:8080 ./src ./bin;
-
+$ php vendor/bin/irestful build http://127.0.0.1:8080 ./src ./bin
 ```
 
 ## Pushing docker images to the repository
 To create a new version, simply execute this command.  It will render all the commands to run to push all the docker images to your docker repository.  You'll also need to login to your docker repository if not done already.
 
+Login to your docker repository.  If you are already logged in, just skip this step:
 ```bash
+$ docker login
+```
 
-//login to your docker repository.  If you are already logged in, just skip this step:
-docker login;
-
-//run the push command:
-php vendor/bin/irestful push ./src;
-
+Run the push command:
+```bash
+$ php vendor/bin/irestful push ./src
 ```
